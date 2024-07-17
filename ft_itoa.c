@@ -31,7 +31,7 @@ static char	*handle_min_int(void)
 {
 	char	*result;
 
-	result = (char *)malloc(12 * sizeof(char));  // "-2147483648" + '\0' = 12 chars
+	result = (char *)malloc(12 * sizeof(char));
 	if (!result)
 		return (NULL);
 	ft_strlcpy(result, "-2147483648", 12);
@@ -42,30 +42,27 @@ char	*ft_itoa(int n)
 {
 	char	*result;
 	int		len;
-	long	num;
 	int		sign;
 
 	if (n == -2147483648)  // Handle INT_MIN without using INT_MIN constant
 		return (handle_min_int());
-	num = n;
 	len = num_len(n);
 	result = (char *)malloc((len + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
 	result[len] = '\0';
 	sign = 1;
-	if (num < 0)
+	if (n < 0)
 	{
 		sign = -1;
-		num = -num;
+		n = -n;
 	}
 	while (len > 0)
 	{
-		result[--len] = (num % 10) + '0';
-		num /= 10;
+		result[--len] = (n % 10) + '0';
+		n /= 10;
 	}
 	if (sign == -1)
 		result[0] = '-';
 	return (result);
 }
-
