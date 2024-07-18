@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 18:18:37 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/07/07 20:46:14 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/07/17 14:27:41 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			return ((char *)(big + i));
 		i++;
 	}
-	return (NULL);}
-
+	return (NULL);
+}

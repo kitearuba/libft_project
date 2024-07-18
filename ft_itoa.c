@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:03:30 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/07/08 18:23:33 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/07/17 14:26:53 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_itoa(int n)
 	int		len;
 	int		sign;
 
-	if (n == -2147483648)  // Handle INT_MIN without using INT_MIN constant
+	if (n == -2147483648)
 		return (handle_min_int());
 	len = num_len(n);
 	result = (char *)malloc((len + 1) * sizeof(char));
