@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:29:07 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/07/07 20:48:41 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/07/28 20:14:49 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
+	char		ch;
 	const char	*last;
 
+	ch = (char) c;
 	last = NULL;
 	while (*s)
 	{
-		if (*s == (char)c)
+		if (*s == ch)
 			last = s;
 		s++;
 	}
-	if (c == '\0')
+	if (ch == '\0')
 		return ((char *)s);
 	return ((char *)last);
 }

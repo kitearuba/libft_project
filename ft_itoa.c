@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:03:30 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/07/17 14:26:53 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:30:35 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,42 +27,27 @@ static int	num_len(int n)
 	return (len);
 }
 
-static char	*handle_min_int(void)
-{
-	char	*result;
-
-	result = (char *)malloc(12 * sizeof(char));
-	if (!result)
-		return (NULL);
-	ft_strlcpy(result, "-2147483648", 12);
-	return (result);
-}
-
 char	*ft_itoa(int n)
 {
-	char	*result;
-	int		len;
-	int		sign;
+	char			*result;
+	int				len;
+	unsigned int	un;
 
-	if (n == -2147483648)
-		return (handle_min_int());
 	len = num_len(n);
 	result = (char *)malloc((len + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
 	result[len] = '\0';
-	sign = 1;
 	if (n < 0)
-	{
-		sign = -1;
-		n = -n;
-	}
+		un = (unsigned int)(-n);
+	else
+		un = (unsigned int)n;
 	while (len > 0)
 	{
-		result[--len] = (n % 10) + '0';
-		n /= 10;
+		result[--len] = (un % 10) + '0';
+		un /= 10;
 	}
-	if (sign == -1)
+	if (n < 0)
 		result[0] = '-';
 	return (result);
 }

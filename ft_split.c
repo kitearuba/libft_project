@@ -6,34 +6,32 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 17:42:18 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/07/07 20:40:57 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/07/23 15:52:28 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	count_str(const char *s, char c)
+static size_t	ft_count_str(const char *s, char c)
 {
 	size_t	count;
-	int		in_substr;
 
 	count = 0;
-	in_substr = 0;
 	while (*s)
 	{
-		if (*s != c && in_substr == 0)
+		while (*s == c)
+			s++;
+		if (*s)
 		{
-			in_substr = 1;
 			count++;
+			while (*s && *s != c)
+				s++;
 		}
-		else if (*s == c)
-			in_substr = 0;
-		s++;
 	}
 	return (count);
 }
 
-static char	**free_result(char **result, size_t j)
+static char	**ft_free_result(char **result, size_t j)
 {
 	size_t	i;
 
@@ -47,41 +45,38 @@ static char	**free_result(char **result, size_t j)
 	return (NULL);
 }
 
-static char	*get_next_word(const char *s, char c, const char **next_start)
+static char	*ft_get_next_word(const char **s, char c)
 {
 	const char	*start;
-	const char	*end;
+	char		*word;
 
-	while (*s && *s == c)
-		s++;
-	start = s;
-	while (*s && *s != c)
-		s++;
-	end = s;
-	*next_start = s;
-	return (ft_substr(start, 0, end - start));
+	while (**s == c)
+		(*s)++;
+	start = *s;
+	while (**s && **s != c)
+		(*s)++;
+	word = ft_substr(start, 0, *s - start);
+	return (word);
 }
 
 char	**ft_split(const char *s, char c)
 {
 	char		**result;
-	size_t		sub_str;
+	size_t		substr_count;
 	size_t		word_index;
-	const char	*next_start;
 
 	if (!s)
 		return (NULL);
-	sub_str = count_str(s, c);
-	result = (char **)malloc((sub_str + 1) * sizeof(char *));
+	substr_count = ft_count_str(s, c);
+	result = (char **)malloc((substr_count + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
-	next_start = s;
 	word_index = 0;
-	while (word_index < sub_str)
+	while (word_index < substr_count)
 	{
-		result[word_index] = get_next_word(next_start, c, &next_start);
+		result[word_index] = ft_get_next_word(&s, c);
 		if (!result[word_index])
-			return (free_result(result, word_index));
+			return (ft_free_result(result, word_index));
 		word_index++;
 	}
 	result[word_index] = NULL;
