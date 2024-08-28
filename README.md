@@ -202,7 +202,7 @@ A big thank you to **42 School** for providing such a challenging and rewarding 
 ## 👨‍💻 **Author**
 
 - **chrrodri** - _42 Barcelona_  
-  [GitHub Profile](https://github.com/yourusername)
+  [GitHub Profile](https://github.com/kitearuba)
 
 ---
 
