@@ -1,76 +1,109 @@
-# Libft - Your First Library
+---
 
-Welcome to the repository of your first custom C library, Libft! This project is part of the 42 School curriculum and aims to help you understand and implement common C library functions, as well as develop new utility functions that will be useful throughout your programming journey.
+# 📚 **Libft - Your First Custom C Library**
 
-## Table of Contents
+![Libft](https://img.shields.io/badge/42-Libft-blue?style=flat-square) ![C Programming](https://img.shields.io/badge/Language-C-brightgreen?style=flat-square) ![Makefile](https://img.shields.io/badge/Build-Makefile-yellow?style=flat-square)
 
-- [Introduction](#introduction)
-- [Project Structure](#project-structure)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Mandatory Part](#mandatory-part)
-  - [Libc Functions](#libc-functions)
-  - [Additional Functions](#additional-functions)
-- [Bonus Part](#bonus-part)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
+Welcome to the repository of **Libft**, your first custom C library! This project is part of the 42 School curriculum and serves as a foundation for many future C projects. You'll implement essential C library functions, create utility functions, and—if you choose—expand the library with advanced list operations.
 
-## Introduction
+---
 
-Programming in C can be tedious without access to commonly used functions. This project involves creating your own library, `libft`, which includes a variety of functions that will serve as a helpful toolkit for your future C projects. You will implement standard C library functions as well as additional functions, and possibly more advanced features if you complete the bonus part.
+## 📑 **Table of Contents**
 
-## Project Structure
+1. [Introduction](#introduction)
+2. [Project Structure](#project-structure)
+3. [Technologies Used](#technologies-used)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Mandatory Part](#mandatory-part)
+   - [Libc Functions](#libc-functions)
+   - [Additional Functions](#additional-functions)
+7. [Bonus Part](#bonus-part)
+8. [Contributing](#contributing)
+9. [Acknowledgements](#acknowledgements)
+10. [Author](#author)
 
-```
+---
+
+## 📖 **Introduction**
+
+Programming in C can sometimes feel tedious without access to commonly used functions. This project, **Libft**, provides you with the opportunity to build your own C library by reimplementing standard functions (like those from libc) and adding new, helpful utility functions. These will serve as a valuable toolkit for all your future C projects.
+
+The **Libft** library will be your foundation for handling strings, memory, file descriptors, and much more. If you complete the **bonus part**, you'll also implement essential linked list management functions.
+
+---
+
+## 📂 **Project Structure**
+
+```bash
 .
-├── ft_*.c            # Implementation of the required functions
+├── ft_*.c            # Source files implementing required functions
 ├── libft.h           # Header file containing function prototypes
 ├── Makefile          # Makefile to compile the library
 ├── README.md         # This README file
-└── libft.a           # The generated library file after compilation
+└── libft.a           # Compiled library after running make
 ```
 
-## Technologies Used
+This structure ensures that the library is modular and easy to manage. Each C file focuses on a particular category of functions (e.g., string manipulation, memory management).
 
-- **C**: The primary programming language for this project.
-- **Makefile**: For building and managing the compilation process.
+---
 
-## Installation
+## 🛠️ **Technologies Used**
 
-To get a local copy up and running, follow these simple steps:
+- **C Language**: The core language for implementing all functions.
+- **Makefile**: Used to automate the compilation process.
+- **GCC Compiler**: Compiles and links the C source files into the `libft.a` library.
 
-1. Clone the repository:
-   ```sh
+---
+
+## 🛠️ **Installation**
+
+To get started with **Libft**, follow these steps to clone and build the library:
+
+1. **Clone the Repository**:
+   ```bash
    git clone https://github.com/yourusername/libft.git
    ```
-2. Navigate to the project directory:
-   ```sh
+
+2. **Navigate to the Project Directory**:
+   ```bash
    cd libft
    ```
-3. Compile the library:
-   ```sh
+
+3. **Compile the Library**:
+   Simply run the `make` command to compile the library:
+   ```bash
    make
    ```
 
-## Usage
+After running `make`, you'll see the `libft.a` file, which is your compiled static library.
 
-Once compiled, you can link `libft.a` to your own projects. Here’s an example of how to use it in your own C project:
+---
 
-1. Include the header file in your source files:
+## 🚀 **Usage**
+
+Once compiled, you can use **Libft** in your own C projects by linking it during compilation.
+
+1. **Include the Header in Your Code**:
    ```c
    #include "libft.h"
    ```
-2. Compile your project with the library:
-   ```sh
+
+2. **Compile Your Project with Libft**:
+   You can link **Libft** with your project by specifying the path to `libft.a` during compilation:
+   ```bash
    gcc -o myproject myproject.c -L. -lft
    ```
 
-## Mandatory Part
+By using the `-L.` flag, you specify the current directory where the `libft.a` file is located, and the `-lft` flag tells the compiler to link against **Libft**.
 
-### Libc Functions
+---
 
-You will reimplement a selection of functions from the standard C library (libc). Each function will have the same prototype and behavior as the original but will be prefixed with `ft_`.
+## 💻 **Mandatory Part**
+
+### 🔨 **Libc Functions**
+
+You will implement a selection of functions from the C standard library (libc), prefixed with `ft_` to distinguish them from the originals. These functions will help you manage characters, strings, and memory. Some examples include:
 
 - `ft_isalpha`
 - `ft_isdigit`
@@ -96,9 +129,9 @@ You will reimplement a selection of functions from the standard C library (libc)
 - `ft_calloc`
 - `ft_strdup`
 
-### Additional Functions
+### 🔧 **Additional Utility Functions**
 
-Additional utility functions that are not part of libc but are commonly used:
+In addition to the libc functions, you'll implement utility functions that aren't part of the standard library but are useful for everyday programming:
 
 - `ft_substr`
 - `ft_strjoin`
@@ -112,9 +145,15 @@ Additional utility functions that are not part of libc but are commonly used:
 - `ft_putendl_fd`
 - `ft_putnbr_fd`
 
-## Bonus Part
+These functions will help you manipulate strings, convert integers, and print data to file descriptors.
 
-If you have completed the mandatory part, you can further enhance your library by implementing the following list manipulation functions:
+---
+
+## 🎯 **Bonus Part**
+
+After completing the mandatory part, you can extend your library by implementing linked list functions. These functions will allow you to manage dynamic lists with ease.
+
+### 🌟 **Bonus Functions**
 
 - `ft_lstnew`
 - `ft_lstadd_front`
@@ -126,7 +165,8 @@ If you have completed the mandatory part, you can further enhance your library b
 - `ft_lstiter`
 - `ft_lstmap`
 
-These functions will use the following structure to represent a node in your list:
+These functions operate on a linked list structure, which is defined as follows:
+
 ```c
 typedef struct s_list
 {
@@ -135,17 +175,41 @@ typedef struct s_list
 } t_list;
 ```
 
-## Contributing
+Implementing these functions will give you a powerful tool for managing linked data structures.
 
-Contributions are welcome! If you have suggestions for improvements or new features, please follow these steps:
+---
 
-1. Fork the repository.
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the branch (`git push origin feature/AmazingFeature`).
-5. Open a pull request.
+## 🤝 **Contributing**
 
-## Acknowledgements
+Contributions are welcome! To contribute:
 
-- A big thank you to the 42 School for providing this challenging and rewarding project.
-- Special thanks to the open-source community for their invaluable resources and support.
+1. **Fork the Repository**.
+2. **Create a Branch** for your feature or fix (`git checkout -b feature/AmazingFeature`).
+3. **Commit Your Changes** (`git commit -m 'Add some AmazingFeature'`).
+4. **Push to Your Branch** (`git push origin feature/AmazingFeature`).
+5. **Open a Pull Request**.
+
+Feel free to suggest improvements or request new features to enhance **Libft**!
+
+---
+
+## 🙌 **Acknowledgements**
+
+A big thank you to **42 School** for providing such a challenging and rewarding curriculum. Thanks to the open-source community for their invaluable resources and contributions.
+
+---
+
+## 👨‍💻 **Author**
+
+- **chrrodri** - _42 Barcelona_  
+  [GitHub Profile](https://github.com/yourusername)
+
+---
+
+## 🎉 **Final Thoughts**
+
+Creating your own custom C library is a rewarding process that improves your understanding of low-level programming and memory management. **Libft** is just the beginning of your journey, and having this library will be a powerful tool in your future C projects.
+
+Good luck, and happy coding! 🚀
+
+---
